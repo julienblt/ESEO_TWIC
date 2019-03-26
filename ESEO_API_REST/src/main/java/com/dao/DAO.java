@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class DAO<T> {
 	
 	private DAOFactory daoFactory;
-
+	//Hey
 	/**
 	 * Constructeur de DAO.
 	 * 
