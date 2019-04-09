@@ -14,7 +14,7 @@ public class VilleFranceDLO {
            "Latitude",
            "Longitude"
 	};
-	
+
 	public Map<String, String> villeDict = new HashMap<String, String>();
 	
 	public VilleFranceDLO(String codeCommune, String nomCommune, String codePostal, String libelle,
@@ -32,6 +32,14 @@ public class VilleFranceDLO {
 
 	public VilleFranceDLO() {
 		
+	}
+	
+	public Map<String, String> getVilleDict() {
+		return villeDict;
+	}
+
+	public void setVilleDict(Map<String, String> villeDict) {
+		this.villeDict = villeDict;
 	}
 
 }
