@@ -20,7 +20,6 @@ public class VilleFranceDAO {
 		try {
 			Statement stmt = DAOFactory.connection();
 			ResultSet rst = stmt.executeQuery(SQL_SELECT_VILLE);
-			System.out.println(SQL_SELECT_VILLE);
 			
 			while (rst.next()) {
 				VilleFranceDLO ville = new VilleFranceDLO();
