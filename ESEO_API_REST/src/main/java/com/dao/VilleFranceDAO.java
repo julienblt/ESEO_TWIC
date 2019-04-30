@@ -115,5 +115,30 @@ public class VilleFranceDAO {
 		return result;
 			
 	}
+	
+	public static String modifier(VilleFranceDLO ville) {
+		String SQL_UPDATE_VILLE = "UPDATE ville_france SET ";
+		for (String key: VilleFranceDLO.keys) {
+			SQL_UPDATE_VILLE += key+"='"+ville.villeDict.get(key)+"', ";
+		}
+		
+		SQL_UPDATE_VILLE = SQL_UPDATE_VILLE.substring(0, SQL_UPDATE_VILLE.length()-2);
+		
+		SQL_UPDATE_VILLE += " WHERE Code_commune_INSEE = '"+ville.getVilleDict().get("Code_commune_INSEE")+"';";
+		//SQL_UPDATE_VILLE += "\n COMMIT;";
+		
+		try {
+			Statement stmt = DAOFactory.connection();
+			int rst = stmt.executeUpdate(SQL_UPDATE_VILLE);
+    		stmt.close();
+    		return Integer.toString(rst);
+
+		} catch (SQLException e) {
+			System.out.println("ERROR \n"+e);
+			System.out.println(SQL_UPDATE_VILLE);
+			return "ERROR \n"+e;
+		}
+		
+	}
 
 }

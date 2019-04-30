@@ -80,5 +80,15 @@ public class TestController {
 		
 		return VilleFranceDAO.modifier(Code_commune_INSEE, key, value);
 	}
+	
+	@RequestMapping(value="/modifierVille2", method=RequestMethod.PUT)
+	@ResponseBody
+	public String modifierVille2(@RequestBody Map<String, String> villeDictInput) {
+		VilleFranceDLO ville = new VilleFranceDLO();
+		ville.villeDict = villeDictInput;
+		String result = VilleFranceDAO.modifier(ville);
+		
+		return result;
+	}
 
 }
